@@ -1,0 +1,4 @@
+#Esta carpeta sirve para que no se guarden estos tipos de archivos o cosas
+node-module
+*.pdf
+
