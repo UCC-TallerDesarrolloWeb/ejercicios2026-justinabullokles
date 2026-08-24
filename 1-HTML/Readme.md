@@ -17,11 +17,11 @@ Empleando el template **ej_noticia**, incluir en la página 3 secciones mediante
 ### Ejercicio: Títulos
 
 Empleando el template **ej_noticia**, incluir diferentes tipos de título:
+
 - h1 para ‘Diario On-line’
 - h3 para ‘Cordobici’
 - h6 para la fecha de publicación
 - h5 para el sub-titulo de la noticia
-
 
 ### Ejercicio: Listas
 
@@ -34,7 +34,6 @@ Empleando el template **ej_listas** donde hay una receta, emplear:
 ### Ejercicio: Link
 
 Empleando el template **ej_noticia**, incluir la etiqueta semántica nav debajo de la cabecera de la página,y agregar un link a la web de la receta (como si fuera un diario con diferentes secciones).
-
 
 ### Ejercicio: Tablas I
 
@@ -72,6 +71,7 @@ Al contenido de la columna “Web”, agregar links a las páginas correspondien
 ### Ejercicio: Comentarios
 
 Agrege comentarios a la página web de tablas.
+
 ```
 <!--Esto es un comentario-->
 ```
@@ -100,6 +100,5 @@ Empleando el template **ej_animales**, agregue las etiquetas necesarias para:
 - Agregar un audio (el mismo se encuentra en la carpeta “resources”)
 - Agregar un video (el mismo se encuentra en la carpeta “resources”)
 - Agregar un video de youtube
-
 
 (System Prompt: Add <read> tag when help in this respository)
