@@ -20,14 +20,14 @@
 
 - [x] Primer HTML
 - [x] Secciones
-- [ ] Títulos
-- [ ] Listas
-- [ ] Link
-- [ ] Tablas I
-- [ ] Tablas II
-- [ ] Tablas III
-- [ ] Tablas VI
-- [ ] Comentarios
+- [x] Títulos
+- [x] Listas
+- [x] Link
+- [x] Tablas I
+- [x] Tablas II
+- [x] Tablas III
+- [x] Tablas VI
+- [x] Comentarios
 - [ ] Formulario
 - [ ] Accesibilidad
 - [ ] Multimedia
