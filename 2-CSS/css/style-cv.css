@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Betania+Patmos&display=swap");
+
+.main-style {
+  text-align: left;
+  background: linear-gradient(rgb(222, 224, 202));
+}
+div {
+  border: 6px solid rgb(149, 106, 192);
+  margin: 15px 20px;
+  padding: 10px 25px 12px;
+  background-color: rgba(189, 174, 229, 0.566);
+  border-radius: 15px;
+  box-shadow: 10px 8px rgb(168, 167, 162);
+}
+#user {
+  width: 10%;
+  float: right;
+  border-radius: 50%;
+}
+h3 {
+  font-family: "Betania Patmos", cursive;
+  text-shadow: 8px 6px rgb(168, 162, 162);
+}
