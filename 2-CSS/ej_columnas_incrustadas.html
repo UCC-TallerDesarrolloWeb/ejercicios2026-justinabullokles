@@ -4,30 +4,45 @@
     <meta charset="UTF-8" />
     <title>Ejercicio Columnas</title>
     <style>
-      .columna1 {
-        float: left;
-        width: 45%;
-        margin: 15px;
+      #tituloPrincipal {
+        color: rgb(25, 25, 138);
       }
-      .columna2 {
-        float: right;
-        width: 45%;
+      .tituloNoticia {
+        font-size: 2.5rem;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:visited,
+      a:link {
+        color: rgb(32, 140, 55);
+      }
+      a:hover {
+        font-size: 2.4em;
+      }
+      a:active {
+        font-weight: bold;
+      }
+      article {
+        column-count: 2;
+        column-gap: 50px;
       }
     </style>
   </head>
-  <body style="font-family: Arial, Helvetica, sans-serif">
+  <body>
     <!--Cree los estilos CSS necesarios para que el texto se visualice en 2 columnas-->
     <header>
-      <h1 id="tituloPrincipal" style="color: rgb(105, 19, 156)">
-        Diario On-line
-      </h1>
+      <h1 id="tituloPrincipal">Diario On-line</h1>
     </header>
     <a href="ej_leyes.html" target="_blank">Legal</a>
     <section>
-      <h3 class="tituloNoticia" style="font-size: 2.5em">CordoBici</h3>
+      <h3 class="tituloNoticia">CordoBici</h3>
       Publicado el 07/03/2018 en Agropecuarias y Ambiente
       <article>
-        <div class="columna1">
+        <div>
           <p>
             Un intercambio académico inspiró a Joaquín, Nicolás, Guido y Facundo
             para elegir el tema de su trabajo final. Dos de ellos estuvieron el
@@ -64,7 +79,7 @@
             coordinador de la carrera y director de la tesis.
           </p>
         </div>
-        <div class="columna2">
+        <div class="grid-item">
           <p>
             Gracias a una profunda investigación comercial, sumada a una
             simulación realizada por un programa llamado anylogic, consiguieron
