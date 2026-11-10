@@ -54,3 +54,12 @@ a:hover {
   background-color: var(--color--secundario);
   padding: 7px;
 }
+
+
+.encabezado-fijo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}

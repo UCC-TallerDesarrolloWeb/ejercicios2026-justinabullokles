@@ -4,7 +4,9 @@
 .main-style {
   text-align: left;
   background: linear-gradient(rgb(222, 224, 202));
+  padding-top: 190px;
 }
+
 div {
   border: 6px solid rgb(149, 106, 192);
   margin: 15px 20px;
@@ -21,4 +23,12 @@ div {
 h3 {
   font-family: "Betania Patmos", cursive;
   text-shadow: 8px 6px rgb(168, 162, 162);
+}
+
+.encabezado-fijo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
