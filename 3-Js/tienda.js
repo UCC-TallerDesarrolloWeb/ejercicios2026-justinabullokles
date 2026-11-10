@@ -66,22 +66,30 @@ const productos = [
  * Genera dinámicamente las tarjetas de los productos.
  * @returns {void} Muestra los productos en el HTML.
  */
-const renderizarProductos = () => {
+/**
+ * Genera las tarjetas de los productos recibidos.
+ * @param {Array} lista - Productos que se mostrarán.
+ * @returns {void}
+ */
+const renderizarProductos = (lista = productos) => {
   let tarjetas = "";
 
-  productos.forEach((producto, indice) => {
+  lista.forEach((producto) => {
+    // Conservamos el indice original para el dialog y el carrito.
+    let indice = productos.indexOf(producto);
+
     tarjetas += `
             <div>
                 <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/${producto.imagen}"
                      alt="${producto.nombre}">
 
                 <h3>${producto.nombre}</h3>
-
                 <p>Precio: $${producto.precio}</p>
 
                 <button type="button" onclick="mostrarDetalleProducto(${indice})">
                     Ver detalle de Producto
                 </button>
+
                 <button type="button" onclick="agregarAlCarrito(${indice})">
                     Agregar al carrito
                 </button>
@@ -89,7 +97,46 @@ const renderizarProductos = () => {
         `;
   });
 
-  document.getElementById("listadoProductos").innerHTML = tarjetas;
+  document.getElementById("listadoProductos").innerHTML =
+    tarjetas || "<p>No se encontraron productos.</p>";
+};
+
+/**
+ * Filtra los productos por nombre, precio, marca y categoría.
+ * @returns {void} Actualiza las tarjetas del catálogo.
+ */
+const filtrarProductos = () => {
+  let texto = document.getElementById("search").value.toLowerCase();
+  let minimo = document.getElementById("precioMin").value;
+  let maximo = document.getElementById("precioMax").value;
+  let marca = document.getElementById("marca").value;
+
+  let categorias = Array.from(
+    document.querySelectorAll('input[name="categoria"]:checked'),
+  ).map((input) => input.value);
+
+  let filtrados = productos.filter((producto) => {
+    let coincideNombre = producto.nombre.toLowerCase().includes(texto);
+
+    let coincideMinimo = minimo === "" || producto.precio >= Number(minimo);
+
+    let coincideMaximo = maximo === "" || producto.precio <= Number(maximo);
+
+    let coincideMarca = marca === "" || producto.marca === marca;
+
+    let coincideCategoria =
+      categorias.length === 0 || categorias.includes(producto.categoria);
+
+    return (
+      coincideNombre &&
+      coincideMinimo &&
+      coincideMaximo &&
+      coincideMarca &&
+      coincideCategoria
+    );
+  });
+
+  renderizarProductos(filtrados);
 };
 
 /**

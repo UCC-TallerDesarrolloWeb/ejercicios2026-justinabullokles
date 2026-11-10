@@ -17,47 +17,59 @@
       Links de navegacion
     </nav>
     <aside class="item3">
-      <form name="filter">
-        <fieldset>
-          <legend>Busqueda</legend>
-          <label for="search">Buscar</label>
-          <input type="text" id="search" name="search" />
-        </fieldset>
-        <fieldset>
-          <legend>Precios></legend>
-          <p>
-            <label for="Minimo">Minimo</label>
-            <input type="number" id="minimo" name="precio-min" min="0" />
-          </p>
-          <p>
-            <label for="price-max">Maximo</label>
-            <input type="number" name="Maximo" />
-          </p>
-        </fieldset>
-        <fieldset>
-          <legend>Tipo de productos</legend>
-          <p>
-            <input
-              type="checkbox"
-              id=" protectores "
-              name="tipo "
-              value=" protectortes"
-            />
+      <
+<form name="filter">
+    <fieldset>
+        <legend>Busqueda</legend>
+        <label for="search">Buscar</label>
+        <input type="text" id="search" name="search"
+               oninput="filtrarProductos()">
+    </fieldset>
+
+    <fieldset>
+        <legend>Precios</legend>
+        <p>
+            <label for="precioMin">Minimo</label>
+            <input type="number" id="precioMin" min="0"
+                   oninput="filtrarProductos()">
+        </p>
+        <p>
+            <label for="precioMax">Maximo</label>
+            <input type="number" id="precioMax" min="0"
+                   oninput="filtrarProductos()">
+        </p>
+    </fieldset>
+
+    <fieldset>
+        <legend>Marca</legend>
+        <select id="marca" onchange="filtrarProductos()">
+            <option value="">Todas las marcas</option>
+            <option value="Gran Marc">Gran Marc</option>
+            <option value="Daedo">Daedo</option>
+        </select>
+    </fieldset>
+
+    <fieldset>
+        <legend>Tipo de productos</legend>
+        <p>
+            <input type="checkbox" id="protectores"
+                   name="categoria" value="Protectores"
+                   onchange="filtrarProductos()">
             <label for="protectores">Protectores</label>
 
-            <input
-              type="checkbox"
-              id=" entrenamiento "
-              name="tipo "
-              value=" entrenamiento"
-            />
-            <label for="entrenamiento">entrenamiento</label>
+            <input type="checkbox" id="entrenamiento"
+                   name="categoria" value="Entrenamiento"
+                   onchange="filtrarProductos()">
+            <label for="entrenamiento">Entrenamiento</label>
 
-            <input type="checkbox" id="dobok" name="tipo " value="dobok" />
-            <label for="dobok">dobok</label>
-          </p>
-        </fieldset>
-      </form>
+            <input type="checkbox" id="dobok"
+                   name="categoria" value="Dobok"
+                   onchange="filtrarProductos()">
+            <label for="dobok">Dobok</label>
+        </p>
+    </fieldset>
+</form>
+
       Filtros
     </aside>
     <main class="item4" id="listadoProductos">
