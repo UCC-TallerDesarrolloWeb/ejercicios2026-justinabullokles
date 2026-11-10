@@ -154,6 +154,28 @@ const filtrarProductos = () => {
 };
 
 /**
+ * Ordena los productos por precio o nombre.
+ * @param {Array} lista - Lista de productos a ordenar.
+ * @returns {Array} Lista de productos ordenados.
+ */
+const ordenarProductos = (lista) => {
+  let orden = document.getElementById("ordenProductos").value;
+  let ordenados = [...lista];
+
+  if (orden === "precio-asc") {
+    ordenados.sort((a, b) => a.precio - b.precio);
+  } else if (orden === "precio-desc") {
+    ordenados.sort((a, b) => b.precio - a.precio);
+  } else if (orden === "nombre-asc") {
+    ordenados.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
+  } else if (orden === "nombre-desc") {
+    ordenados.sort((a, b) => b.nombre.localeCompare(a.nombre, "es"));
+  }
+
+  return ordenados;
+};
+
+/**
  * Agrega un producto al carrito y lo guarda en localStorage.
  * @param {number} indice - Posición del producto en el array.
  * @returns {void}
