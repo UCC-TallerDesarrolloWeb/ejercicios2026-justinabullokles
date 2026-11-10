@@ -173,36 +173,68 @@ const agregarAlCarrito = (indice) => {
  * Muestra los productos guardados en el carrito.
  * @returns {void}
  */
+/**
+ * Muestra los productos del carrito agrupados por nombre.
+ * Calcula las cantidades, los subtotales y el total a pagar.
+ * @returns {void} Actualiza el contenido del carrito.
+ */
 const mostrarCarrito = () => {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   let listado = "";
   let total = 0;
+  let agrupados = [];
 
-  if (carrito.length === 0) {
+  // Agrupar los productos repetidos
+  carrito.forEach((producto, indice) => {
+    let existente = agrupados.find(
+      (item) => item.producto.nombre === producto.nombre,
+    );
+
+    if (existente) {
+      existente.cantidad++;
+    } else {
+      agrupados.push({
+        producto: producto,
+        cantidad: 1,
+        indiceOriginal: indice,
+      });
+    }
+  });
+
+  // Mostrar los productos y sus cantidades
+  if (agrupados.length === 0) {
     listado = "<p>Tu carrito está vacío.</p>";
   } else {
-    carrito.forEach((producto, indice) => {
+    agrupados.forEach((item) => {
+      let producto = item.producto;
+      let cantidad = item.cantidad;
+      let subtotal = producto.precio * cantidad;
+
       listado += `
                 <div>
                     <img
                         src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/${producto.imagen}"
                         alt="${producto.nombre}"
                     >
+
                     <h3>${producto.nombre}</h3>
                     <p>Precio: ${formatearPrecio(producto.precio)}</p>
+                    <p>Cantidad: ${cantidad}</p>
+                    <p>Subtotal: ${formatearPrecio(subtotal)}</p>
 
-                    <button type="button" onclick="eliminarDelCarrito(${indice})">
-                          Eliminar producto
+                    <button type="button"
+                        onclick="eliminarDelCarrito(${item.indiceOriginal})">
+                        Eliminar una unidad
                     </button>
-
                 </div>
             `;
 
-      total += Number(producto.precio);
+      total += subtotal;
     });
   }
 
   document.getElementById("listadoCarrito").innerHTML = listado;
+
   document.getElementById("totalCarrito").innerText =
     "Total: " + formatearPrecio(total);
 };
