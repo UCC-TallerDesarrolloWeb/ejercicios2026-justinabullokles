@@ -97,7 +97,7 @@ const mostrarDetalleProducto = (indice) => {
         <p>Marca: ${producto.marca}</p>
         <p>Categoría: ${producto.categoria}</p>
         <p>Talles: ${producto.talle.join(", ")}</p>
-        <p>Precio: $${producto.precio}</p>
+       <p>Precio: ${formatearPrecio(producto.precio)}</p>
     `;
 
   document.getElementById("contenidoDetalle").innerHTML = contenido;

@@ -63,6 +63,20 @@ const productos = [
 ];
 
 /**
+ * Formatea un precio en pesos argentinos.
+ * @param {number} precio - Precio del producto.
+ * @returns {string} Precio con formato de moneda argentina.
+ */
+const formatearPrecio = (precio) => {
+  return new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(precio);
+};
+
+/**
  * Genera dinámicamente las tarjetas de los productos.
  * @returns {void} Muestra los productos en el HTML.
  */
@@ -84,7 +98,7 @@ const renderizarProductos = (lista = productos) => {
                      alt="${producto.nombre}">
 
                 <h3>${producto.nombre}</h3>
-                <p>Precio: $${producto.precio}</p>
+                <p>Precio: ${formatearPrecio(producto.precio)}</p>
 
                 <button type="button" onclick="mostrarDetalleProducto(${indice})">
                     Ver detalle de Producto
@@ -150,6 +164,7 @@ const agregarAlCarrito = (indice) => {
   carrito.push(productos[indice]);
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarContadorCarrito();
 
   alert("Producto agregado al carrito");
 };
@@ -174,7 +189,7 @@ const mostrarCarrito = () => {
                         alt="${producto.nombre}"
                     >
                     <h3>${producto.nombre}</h3>
-                    <p>Precio: $${producto.precio}</p>
+                    <p>Precio: ${formatearPrecio(producto.precio)}</p>
 
                     <button type="button" onclick="eliminarDelCarrito(${indice})">
                           Eliminar producto
@@ -188,7 +203,8 @@ const mostrarCarrito = () => {
   }
 
   document.getElementById("listadoCarrito").innerHTML = listado;
-  document.getElementById("totalCarrito").innerText = "Total: $" + total;
+  document.getElementById("totalCarrito").innerText =
+    "Total: " + formatearPrecio(total);
 };
 
 /**
@@ -204,6 +220,7 @@ const eliminarDelCarrito = (indice) => {
   carrito.splice(indice, 1);
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarContadorCarrito();
 
   mostrarCarrito();
 };
@@ -214,5 +231,23 @@ const eliminarDelCarrito = (indice) => {
  */
 const vaciarCarrito = () => {
   localStorage.removeItem("carrito");
+  actualizarContadorCarrito();
   mostrarCarrito();
 };
+
+/**
+ * Actualiza el contador de productos del carrito.
+ * @returns {void}
+ */
+const actualizarContadorCarrito = () => {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  let contador = document.getElementById("contadorCarrito");
+
+  if (contador) {
+    contador.textContent = carrito.length;
+  }
+};
+
+// Actualiza el contador al cargar la página.
+document.addEventListener("DOMContentLoaded", actualizarContadorCarrito);
