@@ -61,3 +61,89 @@ const productos = [
     imagen: "protectores-manos.webp",
   },
 ];
+
+/**
+ * Genera dinámicamente las tarjetas de los productos.
+ * @returns {void} Muestra los productos en el HTML.
+ */
+const renderizarProductos = () => {
+  let tarjetas = "";
+
+  productos.forEach((producto, indice) => {
+    tarjetas += `
+            <div>
+                <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/${producto.imagen}"
+                     alt="${producto.nombre}">
+
+                <h3>${producto.nombre}</h3>
+
+                <p>Precio: $${producto.precio}</p>
+
+                <button type="button" onclick="mostrarDetalleProducto(${indice})">
+                    Ver detalle de Producto
+                </button>
+                <button type="button" onclick="agregarAlCarrito(${indice})">
+                    Agregar al carrito
+                </button>
+            </div>
+        `;
+  });
+
+  document.getElementById("listadoProductos").innerHTML = tarjetas;
+};
+
+/**
+ * Agrega un producto al carrito y lo guarda en localStorage.
+ * @param {number} indice - Posición del producto en el array.
+ * @returns {void}
+ */
+const agregarAlCarrito = (indice) => {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  carrito.push(productos[indice]);
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  alert("Producto agregado al carrito");
+};
+
+/**
+ * Muestra los productos guardados en el carrito.
+ * @returns {void}
+ */
+const mostrarCarrito = () => {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let listado = "";
+  let total = 0;
+
+  if (carrito.length === 0) {
+    listado = "<p>Tu carrito está vacío.</p>";
+  } else {
+    carrito.forEach((producto) => {
+      listado += `
+                <div>
+                    <img
+                        src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/${producto.imagen}"
+                        alt="${producto.nombre}"
+                    >
+                    <h3>${producto.nombre}</h3>
+                    <p>Precio: $${producto.precio}</p>
+                </div>
+            `;
+
+      total += Number(producto.precio);
+    });
+  }
+
+  document.getElementById("listadoCarrito").innerHTML = listado;
+  document.getElementById("totalCarrito").innerText = "Total: $" + total;
+};
+
+/**
+ * Elimina todos los productos del carrito.
+ * @returns {void}
+ */
+const vaciarCarrito = () => {
+  localStorage.removeItem("carrito");
+  mostrarCarrito();
+};

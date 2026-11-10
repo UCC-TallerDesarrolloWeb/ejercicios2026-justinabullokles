@@ -2,14 +2,17 @@
 <html>
   <head>
     <title>Catalogo de productos</title>
+    <meta charset="UTF-8">
     <link href="catalogo.css" type="text/css" rel="stylesheet" />
+    <script src="../3-Js/misFunciones.js" defer></script>
+    <script src="../3-Js/tienda.js" defer></script>
   </head>
-  <body>
+  <body onload="renderizarProductos()">
           <div class="grid-container">
     <header class="item1">Catalogo productos</header>
     <nav class="item2">
       <a href="productos.html">Catalogo de productos</a>
-      <a href="">Carrito de compras</a>
+      <a href="carrito.html">Carrito de compras</a>
 
       Links de navegacion
     </nav>
@@ -57,14 +60,20 @@
       </form>
       Filtros
     </aside>
-    <main class="item4">
-        <div>
-          <img
-            src=" https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/cabezal-cerrado.webp"
-            alt="Cabezal cerrado"
-          />
-          <h3>Cabezal cerrado</h3>
-        </div>
+    <main class="item4" id="listadoProductos">
+</main>
+        
+<div>
+    <img
+        src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/cabezal-cerrado.webp"
+        alt="Cabezal cerrado"
+    />
+    <h3>Cabezal cerrado</h3>
+    <button type="button" onclick="mostrarDetalleProducto()">
+        Ver detalle de Producto
+    </button>
+</div>
+
         <div>
           <img
             src=" https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/dobok.webp"
@@ -102,6 +111,16 @@
         </div>
       </div>
     </main>
+
+
+<dialog id="detalleProducto">
+    <div id="contenidoDetalle"></div>
+
+    <button type="button" onclick="cerrarDetalleProducto()">
+        Cerrar
+    </button>
+</dialog>
+
     <footer class="Item5">Contacto</footer>
   </body>
 </html>

@@ -1,43 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Conversor de Unidades</title>
-    <link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
-    <link href="miEstilo.css" type="text/css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Inknut+Antiqua"
+      rel="stylesheet"
+    />
+    <link href="miEstilo.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="misFunciones.js"></script>
-</head>
-<body class="body-num">
+  </head>
+  <body class="body-num">
+    <div class="centrado div-conver">
+      <h1>Conversor de Unidades</h1>
+      <form>
+        <p>
+          <label for="metro"> Metro</label> =
+          <input
+            id="metro"
+            type="text"
+            name="unid_metro"
+            onchange="convertirUnidades(this.value, this.id)"
+          />
+        </p>
 
-<div class="centrado div-conver">
-    <h1>Conversor de Unidades</h1>
-    <form>
-       
-<p>
-    <label for="metro"> Metro</label> =
-    <input id="metro" type="text" name="unid_metro"
-           onchange="convertirUnidades(this.value, this.id)">
-</p>
+        <p>
+          <label for="pulgada"> Pulgada</label> =
+          <input
+            id="pulgada"
+            type="text"
+            name="unid_pulgada"
+            onchange="convertirUnidades(this.value, this.id)"
+          />
+        </p>
 
-<p>
-    <label for="pulgada"> Pulgada</label> =
-    <input id="pulgada" type="text" name="unid_pulgada"
-           onchange="convertirUnidades(this.value, this.id)">
-</p>
+        <p>
+          <label for="pie"> Pie</label> =
+          <input
+            id="pie"
+            type="text"
+            name="unid_pie"
+            onchange="convertirUnidades(this.value, this.id)"
+          />
+        </p>
 
-<p>
-    <label for="pie"> Pie</label> =
-    <input id="pie" type="text" name="unid_pie"
-           onchange="convertirUnidades(this.value, this.id)">
-</p>
-
-<p>
-    <label for="yarda"> Yarda</label> =
-    <input id="yarda" type="text" name="unid_yarda"
-           onchange="convertirUnidades(this.value, this.id)">
-</p>
-
-    </form>
-</div>
-</body>
+        <p>
+          <label for="yarda"> Yarda</label> =
+          <input
+            id="yarda"
+            type="text"
+            name="unid_yarda"
+            onchange="convertirUnidades(this.value, this.id)"
+          />
+        </p>
+      </form>
+    </div>
+  </body>
 </html>

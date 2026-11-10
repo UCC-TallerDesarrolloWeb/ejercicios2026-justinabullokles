@@ -1,6 +1,7 @@
 # Unidad 3: JavaScript y ES6+
 
 ## Js (parte I)
+
 ### Ejercicio: Hola Mundo!
 
 Mostrar un “alert()” con el texto “Hola Mundo!” que se ejecute en el onload del body.
@@ -13,12 +14,11 @@ Escribir funciones JavaScript para que, al escribir un número en cualquiera de 
 - Los campos deben contener un nombre o id
 - La función debe enviar el valor y el nombre del campo cambiado
 
-
 ### Ejercicio: Documentación
 
 Documentar las funciones del “Conversor de Unidades” adecuadamente, indicando que hacen las funciones, el nombre del método, que parámetros se le envía y que valor retorna.
 
-Ejecutar el comando de jsdoc ```jsdoc misFunciones.js``` para generar la documentación.
+Ejecutar el comando de jsdoc `jsdoc misFunciones.js` para generar la documentación.
 
 ### Ejercicio: Grados a Radianes
 
@@ -29,6 +29,7 @@ Empleando la pagina grados_radianes haga una conversion de grados a radianes.
 - Se debe emplear Math.PI
 
 ## Js (parte II)
+
 ### Ejercicio: Refactorización
 
 Refactorice el código de manera tal que:
@@ -38,7 +39,6 @@ Refactorice el código de manera tal que:
 - Operar todos los valores empleando las variables
 - Al final hacer la asignación de valores a los campos en la UI
 
-
 ### Ejercicio: Mostrar/Ocultar div
 
 Escribir una función JavaScript para mostrar u ocultar el div celeste.
@@ -47,13 +47,11 @@ Escribir una función JavaScript para mostrar u ocultar el div celeste.
 - Los campos deben contener un nombre u ID
 - Se debe cambiar el estilo de display
 
-
 ### Ejercicio: Mostrar/Ocultar Dialog
 
 - En productos.html coloque un botón de "Ver detalle de Producto"
 - Al presionar el botón se debe visualizar un dialog.
 - El dialog debe tener un botón para cerrar.
-
 
 ### Ejercicio: Operaciones Matemáticas
 
@@ -75,12 +73,10 @@ Modificar el HTML para quitar los inputs de los resultados. Emplear span, p o di
 
 - Emplear innerHTML para asignarle valores a los divs.
 
-
 ### Ejercicio: Renderizado Dinámico
 
 1. Cree una "Base de Datos" de los productos que desea vender definiendo los elementos.
 2. Escriba una función Js que se llame cuando la página se carga. Esta función debe crear una tarjeta <div> por cada elemento. Esta tarjeta deberá mostrar la información del producto: nombre, precio y la imagen. (innerHTML)
-
 
 ### Ejercicio: Renderizado Dinámico del Dialog
 
@@ -101,12 +97,14 @@ Modificar las funciones desarrolladas previamente para que el contenido del dial
 ### Ejercicio: Filter
 
 1. Empleando de base el ejercicio anterior agregue en el html:
+
 - Un input de tipo texto que permita realizar búsqueda de palabras.
 - Dos inputs de tipo number que permita filtrar en un rango de precios
 - Un <select> con <option> para filtrar por marca.
 - Un <checkbox> para filtrar por categoría de Producto.
 
 2. Emplea filter y permite al usuario:
+
 - Filtrar por palabra
 - Filtrar por rango de precio
 - Filtrar por marca

@@ -1,46 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Operaciones Matemáticas</title>
-    <link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
-    <link href="miEstilo.css" type="text/css" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Inknut+Antiqua"
+      rel="stylesheet"
+    />
+    <link href="miEstilo.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="misFunciones.js"></script>
-</head>
-<body class="body-num">
+  </head>
+  <body class="body-num">
+    <div class="centrado div-conver">
+      <h1>Operaciones Matemáticas</h1>
 
-<div class="centrado div-conver">
-    <h1>Operaciones Matemáticas</h1>
-    <form class="operacionesMat">
+      <form class="operacionesMat">
         <p>
-            <input id="nums1" type="text" name="sum_num1">
-            +
-            <input id="nums2" type="text" name="sum_num2">
-            =
-            <input id="totalS" type="text" name="sum_total">
+          <input
+            id="nums1"
+            type="text"
+            name="sum_num1"
+            onchange="calcularOperacion('nums1', 'nums2', 'totalS', '+')"
+          />
+          +
+          <input
+            id="nums2"
+            type="text"
+            name="sum_num2"
+            onchange="calcularOperacion('nums1', 'nums2', 'totalS', '+')"
+          />
+          =
+          <span id="totalS"></span>
         </p>
+
         <p>
-            <input id="numr1" type="text" name="res_num1">
-            -
-            <input id="numr2" type="text" name="res_num2">
-            =
-            <input id="totalR" type="text" name="res_total">
+          <input
+            id="numr1"
+            type="text"
+            name="res_num1"
+            onchange="calcularOperacion('numr1', 'numr2', 'totalR', '-')"
+          />
+          -
+          <input
+            id="numr2"
+            type="text"
+            name="res_num2"
+            onchange="calcularOperacion('numr1', 'numr2', 'totalR', '-')"
+          />
+          =
+          <span id="totalR"></span>
         </p>
+
         <p>
-            <input id="numm1" type="text" name="mul_num1">
-            x
-            <input id="numm2" type="text" name="mul_num2">
-            =
-            <input id="totalM" type="text" name="mul_total">
+          <input
+            id="numm1"
+            type="text"
+            name="mul_num1"
+            onchange="calcularOperacion('numm1', 'numm2', 'totalM', '*')"
+          />
+          x
+          <input
+            id="numm2"
+            type="text"
+            name="mul_num2"
+            onchange="calcularOperacion('numm1', 'numm2', 'totalM', '*')"
+          />
+          =
+          <span id="totalM"></span>
         </p>
+
         <p>
-            <input id="numd1" type="text" name="div_num1">
-            /
-            <input id="numd2" type="text" name="div_num2">
-            =
-            <input id="totalD" type="text" name="div_total">
+          <input
+            id="numd1"
+            type="text"
+            name="div_num1"
+            onchange="calcularOperacion('numd1', 'numd2', 'totalD', '/')"
+          />
+          /
+          <input
+            id="numd2"
+            type="text"
+            name="div_num2"
+            onchange="calcularOperacion('numd1', 'numd2', 'totalD', '/')"
+          />
+          =
+          <span id="totalD"></span>
         </p>
-    </form>
-</div>
-</body>
+      </form>
+    </div>
+  </body>
 </html>
