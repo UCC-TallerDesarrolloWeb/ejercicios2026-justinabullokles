@@ -119,7 +119,7 @@ const mostrarCarrito = () => {
   if (carrito.length === 0) {
     listado = "<p>Tu carrito está vacío.</p>";
   } else {
-    carrito.forEach((producto) => {
+    carrito.forEach((producto, indice) => {
       listado += `
                 <div>
                     <img
@@ -128,6 +128,11 @@ const mostrarCarrito = () => {
                     >
                     <h3>${producto.nombre}</h3>
                     <p>Precio: $${producto.precio}</p>
+
+                    <button type="button" onclick="eliminarDelCarrito(${indice})">
+                          Eliminar producto
+                    </button>
+
                 </div>
             `;
 
@@ -137,6 +142,23 @@ const mostrarCarrito = () => {
 
   document.getElementById("listadoCarrito").innerHTML = listado;
   document.getElementById("totalCarrito").innerText = "Total: $" + total;
+};
+
+/**
+ * Elimina un producto del carrito según su posición.
+ * Actualiza localStorage y vuelve a mostrar el carrito.
+ *
+ * @param {number} indice - Posición del producto a eliminar.
+ * @returns {void} Actualiza el carrito.
+ */
+const eliminarDelCarrito = (indice) => {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  carrito.splice(indice, 1);
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  mostrarCarrito();
 };
 
 /**
